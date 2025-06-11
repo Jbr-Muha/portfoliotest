@@ -18,6 +18,16 @@ window.onload = function() {
         welcomeScreen.appendChild(square);
     }
 
+
+    const chatMessages = document.querySelectorAll('.chat-bubble');
+    chatMessages.forEach((msg, i) => {
+        msg.style.opacity = '0';
+        setTimeout(() => {
+            msg.style.transition = 'opacity 0.6s ease';
+            msg.style.opacity = '1';
+        }, 4500 + i * 1000);
+    });
+
     setTimeout(() => {
         document.getElementById("main-content").style.display = "flex";
         welcomeScreen.style.opacity = "0";
