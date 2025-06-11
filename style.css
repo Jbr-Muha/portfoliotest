@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#welcome-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fade 0.5s ease;
+    transition: opacity 1s ease-in-out;
+}
+
+#welcome-screen p {
+    font-family: "Tinos";
+    z-index: 99999;
+    font-weight: 700;
+    color: #ff7eb6;
+    text-align: center;
+}
+
+.square {
+    position: absolute;
+    transform-origin: center;
+    animation: moveUP 50s linear forwards;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFD6E8 100%);
+}
+
+hr {
+    width: 0%;
+    animation: expend 3s ease 1s forwards;
+    height: 3px;
+    border: none;
+    z-index: 99999;
+    background: linear-gradient(135deg, #FFF0F5 0%, #FFD6E8 100%);
+}
+
+#main-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #FFF0F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Quicksand";
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.logo-container img {
+    width: 50px;
+    transition: filter 0.5s ease-in-out;
+}
+
+.logo-container:hover img {
+    animation-name: rotate360;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+svg:hover {
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+
+.hiding-bar {
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0);
+    background-image: url("black.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    color: white;
+    align-items: center;
+    padding: 8rem 0;
+    justify-content: space-between;
+    flex-direction: column;
+    font-family: "Oxanium", serif;
+    transition: top 0.5s ease-in-out, background-image 0.5s ease-in-out;
+}
+
+.hiding-bar h3 {
+    opacity: 0;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: opacity 0.5s ease;
+    transition-delay: 1s;
+}
+
+.choises {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.choises h1 {
+    opacity: 0;
+    font-weight: 600;
+    transition: opacity 0.5s ease;
+}
+
+.choises h1:nth-child(1) {
+    transition-delay: 0.9s;
+}
+
+.choises h1:nth-child(2) {
+    transition-delay: 0.8s;
+}
+
+.choises h1:nth-child(3) {
+    transition-delay: 0.7s;
+}
+
+.choises h1:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+.choises h1, .social-links p {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.choises h1::after, .social-links p::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.choises h1:hover::after, .social-links p:hover::after {
+    transform: scaleX(1);
+}
+
+.social-links {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.phone {
+    height: 95vh;
+    width: 350px;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0 0 10px #333;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.phone-head {
+    height: 15%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background: linear-gradient(200deg, #FFF0F5 0%, #FFD6E8 100%);
+}
+
+.info-head-part {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.status-bubble {
+    background-color: #ff7eb6;
+    padding: 0.5rem;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.profile img {
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #ff7eb6;
+}
+
+.phone-body {
+    height: 70%;
+    width: 100%;
+    background-color: #fff6f9;
+    /* display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end; */
+    overflow-y: scroll;
+}
+
+.phone-body::-webkit-scrollbar {
+    display: none;
+}
+  
+
+.phone-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15%;
+    background: linear-gradient(200deg, #FFF0F5 0%, #FFD6E8 100%);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0 1rem;
+    gap: 0.9rem;
+}
+
+.phone-footer input {
+    height: 50px;
+    width: 65%;
+    border: none;
+    border-radius: 30px;
+    padding-left: 0.5rem;
+}
+.phone-footer input:focus {
+    outline: none;
+}
+
+.send-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.text-profile img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.chat-bubble {
+    width: 60%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: #ff7eb6;
+    margin: 0.5rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes expend {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes moveUP {
+    0% {
+        transform: translateY(0) rotateZ(45deg);
+    }
+    100% {
+        transform: translateY(-1000px) rotateZ(45deg);
+    }
+}
