@@ -25,7 +25,7 @@ window.onload = function() {
         setTimeout(() => {
             msg.style.transition = 'opacity 0.6s ease';
             msg.style.opacity = '1';
-        }, 9000 + i * 1000);
+        }, 5000 + i * 1000);
     });
 
        const statusText = document.querySelector('.status-text');
@@ -34,7 +34,7 @@ window.onload = function() {
 setTimeout(() => {
     statusText.textContent = 'typing';
     statusText.classList.add('typing-dots');
-}, 1000);
+}, 2000);
 
 // Stop typing and show "online"
 setTimeout(() => {
